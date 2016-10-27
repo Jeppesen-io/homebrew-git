@@ -2,7 +2,7 @@ class MyGit < Formula
   desc 'Install Git how I like it'
   url 'https://github.com/Jeppesen-io/homebrew-git/archive/master.zip'
   homepage 'https://github.com/Jeppesen-io/homebrew-git'
-  version '1.1.0'
+  version '1.1.2'
 
   depends_on 'git'
   depends_on 'curl'
@@ -30,7 +30,7 @@ class MyGit < Formula
 
     # Create global git alias
     def git_alias(name,action)
-      system 'git', 'config', '--global', '--replace-all', "alias.#{name}", action,
+      system 'git', 'config', '--global', '--replace-all', "alias.#{name}", action
     end
 
     git_alias 'lol',     'log --graph --decorate --oneline'
