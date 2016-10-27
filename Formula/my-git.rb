@@ -2,7 +2,7 @@ class MyGit < Formula
   desc 'Install Git how I like it'
   url 'https://github.com/Jeppesen-io/homebrew-git/archive/master.zip'
   homepage 'https://github.com/Jeppesen-io/homebrew-git'
-  version '1.0.0'
+  version '1.1.0'
 
   depends_on 'git'
   depends_on 'curl'
@@ -28,17 +28,22 @@ class MyGit < Formula
     # http://stackoverflow.com/questions/17096311/why-do-i-need-to-explicitly-push-a-new-branch
     system 'git', 'config', '--global', '--replace-all', 'push.default',  'current'
 
-    system 'git', 'config', '--global', '--replace-all', 'alias.lol',     '\"log --graph --decorate --oneline\"'
-    system 'git', 'config', '--global', '--replace-all', 'alias.lola',    '"log --graph --decorate --oneline --all"'
-    system 'git', 'config', '--global', '--replace-all', 'alias.co',      "'checkout'"
-    system 'git', 'config', '--global', '--replace-all', 'alias.ct',      'commit  a'
-    system 'git', 'config', '--global', '--replace-all', 'alias.ps',      '"push"'
-    system 'git', 'config', '--global', '--replace-all', 'alias.pl',      '"pull"'
-    system 'git', 'config', '--global', '--replace-all', 'alias.dfm',     '"diff origin/master"'
-    system 'git', 'config', '--global', '--replace-all', 'alias.st',      'status'
-    system 'git', 'config', '--global', '--replace-all', 'alias.last',    '"log -1 HEAD"'
-    system 'git', 'config', '--global', '--replace-all', 'alias.some',    '"!git fetch -a && git pull"'
-    system 'git', 'config', '--global', '--replace-all', 'alias.rb',      '"rebase -i origin/master"'
+    # Create global git alias
+    def git-alias(name,action)
+      system 'git', 'config', '--global', '--replace-all', "alias.#{name}", action,
+    end
+
+    git-alias 'lol',     'log --graph --decorate --oneline'
+    git-alias 'lola',    'log --graph --decorate --oneline --all'
+    git-alias 'co',      'checkout'
+    git-alias 'ct',      'commit'
+    git-alias 'ps',      'push'
+    git-alias 'pl',      'pull'
+    git-alias 'dfm',     'diff origin/master'
+    git-alias 'st',      'status'
+    git-alias 'last',    'log -1 HEAD'
+    git-alias 'some',    '!git fetch -a && git pull'
+    git-alias 'rb',      'rebase -i origin/master'
 
     # Bash completion
     system 'curl', '-fLo', "#{home_dir}/.config/bash/git-completion.bash",
