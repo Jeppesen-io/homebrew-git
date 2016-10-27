@@ -29,21 +29,21 @@ class MyGit < Formula
     system 'git', 'config', '--global', '--replace-all', 'push.default',  'current'
 
     # Create global git alias
-    def git-alias(name,action)
+    def git_alias(name,action)
       system 'git', 'config', '--global', '--replace-all', "alias.#{name}", action,
     end
 
-    git-alias 'lol',     'log --graph --decorate --oneline'
-    git-alias 'lola',    'log --graph --decorate --oneline --all'
-    git-alias 'co',      'checkout'
-    git-alias 'ct',      'commit'
-    git-alias 'ps',      'push'
-    git-alias 'pl',      'pull'
-    git-alias 'dfm',     'diff origin/master'
-    git-alias 'st',      'status'
-    git-alias 'last',    'log -1 HEAD'
-    git-alias 'some',    '!git fetch -a && git pull'
-    git-alias 'rb',      'rebase -i origin/master'
+    git_alias 'lol',     'log --graph --decorate --oneline'
+    git_alias 'lola',    'log --graph --decorate --oneline --all'
+    git_alias 'co',      'checkout'
+    git_alias 'ct',      'commit'
+    git_alias 'ps',      'push'
+    git_alias 'pl',      'pull'
+    git_alias 'dfm',     'diff origin/master'
+    git_alias 'st',      'status'
+    git_alias 'last',    'log -1 HEAD'
+    git_alias 'some',    '!git fetch -a && git pull'
+    git_alias 'rb',      'rebase -i origin/master'
 
     # Bash completion
     system 'curl', '-fLo', "#{home_dir}/.config/bash/git-completion.bash",
