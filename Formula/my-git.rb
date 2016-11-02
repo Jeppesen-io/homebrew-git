@@ -2,7 +2,7 @@ class MyGit < Formula
   desc 'Install Git how I like it'
   url 'https://github.com/Jeppesen-io/homebrew-git/archive/master.zip'
   homepage 'https://github.com/Jeppesen-io/homebrew-git'
-  version '1.1.3'
+  version '1.1.4'
 
   depends_on 'git'
   depends_on 'curl'
@@ -33,7 +33,7 @@ class MyGit < Formula
       system 'git', 'config', '--global', '--replace-all', "alias.#{name}", action
     end
 
-    git_alias 'l',       'log -p --color | less'
+    git_alias 'l',       'log -p --color'
     git_alias 'co',      'checkout'
     git_alias 'ct',      'commit'
     git_alias 'ps',      'push'
