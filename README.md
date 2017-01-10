@@ -2,14 +2,22 @@
 ### Wraps `git` brew
 Git, for me!
 
-### Aliases
-    ct      commit
-    rb      interactive rebase
-    ps      push
-    pl      pull
-    co      checkout
-    co      checkout
-    dfm     diff from master
-    last    last change
-    some    pull all the fresh stuff down
+### bash/zsh completion support for core Git.
 
+### Aliases
+    st      status
+
+    rb      rebase -i origin/master
+    rbc     rebase --continue
+    rba     rebase --abort
+
+    ps      push
+    psf     push --force-with-lease
+
+    co      checkout
+    ct      commit
+    some    !git fetch -a && git pull
+
+    dfm     diff origin/master
+    l       log -p --color
+    last    log -1 HEAD
