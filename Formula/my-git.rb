@@ -2,7 +2,7 @@ class MyGit < Formula
   desc 'Install Git how I like it'
   url 'https://github.com/Jeppesen-io/homebrew-git/archive/master.zip'
   homepage 'https://github.com/Jeppesen-io/homebrew-git'
-  version '1.2.0'
+  version '1.2.1'
 
   depends_on 'git'
   depends_on 'curl'
@@ -33,26 +33,29 @@ class MyGit < Formula
       system 'git', 'config', '--global', '--replace-all', "alias.#{name}", action
     end
 
-    git_alias 'co',      'checkout'
-    git_alias 'ct',      'commit'
-    git_alias 'some',    '!git fetch -a && git pull'
+    git_alias 'co',       'checkout'
+    git_alias 'ct',       'commit'
+    git_alias 'some',     '!git fetch -a && git pull'
 
-    git_alias 'ps',      'push'
-    git_alias 'psf',     'push --force-with-lease'
+    git_alias 'ps',       'push'
+    git_alias 'psf',      'push --force-with-lease'
 
-    git_alias 's',       'status'
+    git_alias 's',        'status'
 
-    git_alias 'st',      'stash'
-    git_alias 'stp',     'stash pop'
-    git_alias 'stc',     'stash clear'
+    git_alias 'st',       'stash'
+    git_alias 'stp',      'stash pop'
+    git_alias 'stc',      'stash clear'
 
-    git_alias 'dfm',     'diff origin/master'
-    git_alias 'l',       'log -p --color'
-    git_alias 'l1',      'log -1 HEAD'
+    git_alias 'dfm',      'diff origin/master'
+    git_alias 'l',        'log -p --color'
+    git_alias 'l1',       'log -1 HEAD'
 
-    git_alias 'rb',      'rebase -i origin/master'
-    git_alias 'rba',     'rebase --abort'
-    git_alias 'rbc',     'rebase --continue'
+    git_alias 'rb',       'rebase -i origin/master'
+    git_alias 'rba',      'rebase --abort'
+    git_alias 'rbc',      'rebase --continue'
+
+    git_alias 'ignore',   'update-index --assume-unchanged'
+    git_alias 'unignore', 'update-index --no-assume-unchanged'
 
     # Bash completion
     system 'curl', '-fLo', "#{home_dir}/.config/bash/git-completion.bash",
