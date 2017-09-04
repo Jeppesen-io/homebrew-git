@@ -2,7 +2,7 @@ class MyGit < Formula
   desc 'Install Git how I like it'
   url 'https://github.com/Jeppesen-io/homebrew-git/archive/master.zip'
   homepage 'https://github.com/Jeppesen-io/homebrew-git'
-  version '1.2.2'
+  version '1.2.3'
 
   depends_on 'git'
   depends_on 'curl'
@@ -12,8 +12,8 @@ class MyGit < Formula
   def install
 
     # Create xdg dirs for git
-    system 'mkdir', '-vp', "#{HOME}/.config/git/"
-    system 'mkdir', '-vp', "#{HOME}/.config/bash/"
+    system 'mkdir', '-vp', "$HOME/.config/git/"
+    system 'mkdir', '-vp', "$HOME/.config/bash/"
 
     # Prevent "empty install"
     system 'touch'    , "#{prefix}/config"
