@@ -1,6 +1,6 @@
 cask 'my-git' do
 
-  version '1.0'
+  version '1.1'
   url 'https://github.com/Jeppesen-io/homebrew-git/archive/master.zip'
   homepage 'https://github.com/Jeppesen-io/homebrew-git'
   sha256 :no_check
@@ -14,7 +14,7 @@ cask 'my-git' do
     `mkdir -vp #{ENV['HOME']}/.cache/git`
     `mkdir -vp #{ENV['HOME']}/.local/git`
 
-    `rm -v #{ENV['HOME']}/.config/git/config`
+    `rm -v #{ENV['HOME']}/.config/git/config 2> /dev/null`
     `touch #{ENV['HOME']}/.config/git/config`
 
   end
@@ -30,6 +30,7 @@ cask 'my-git' do
       system 'git', 'config', '--global', '--replace-all', "alias.#{name}", action
     end
 
+    git_alias 'a',        'add'
     git_alias 'co',       'checkout'
     git_alias 'ct',       'commit'
     git_alias 'some',     '!git fetch -a && git pull'
@@ -54,10 +55,6 @@ cask 'my-git' do
     git_alias 'ignore',   'update-index --assume-unchanged'
     git_alias 'unignore', 'update-index --no-assume-unchanged'
 
-
-    `ln -svf /usr/local/bin/nvim /usr/local/bin/vim`
-
-    `pip3 install git --upgrade`
   end
 
 end
