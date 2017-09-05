@@ -5,19 +5,28 @@ Git, for me!
 ### bash/zsh completion support for core Git.
 
 ### Aliases
-    st      status
+    a        'add'
+    co       'checkout'
+    ct       'commit'
+    some     '!git fetch -a && git pull'
 
-    rb      rebase -i origin/master
-    rbc     rebase --continue
-    rba     rebase --abort
+    ps       'push'
+    psf      'push --force-with-lease'
 
-    ps      push
-    psf     push --force-with-lease
+    s        'status'
 
-    co      checkout
-    ct      commit
-    some    !git fetch -a && git pull
+    st       'stash'
+    stp      'stash pop'
+    stc      'stash clear'
 
-    dfm     diff origin/master
-    l       log -p --color
-    last    log -1 HEAD
+    dfm      'diff origin/master'
+    l        'log -p --color'
+    l1       'log -1 HEAD'
+
+    rb       'rebase -i origin/master'
+    rba      'rebase --abort'
+    rbc      'rebase --continue'
+
+    ignore   'update-index --assume-unchanged'
+    unignore 'update-index --no-assume-unchanged'
+
