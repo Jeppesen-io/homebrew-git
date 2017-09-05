@@ -2,7 +2,7 @@ class MyGit < Formula
   desc 'Install Git how I like it'
   url 'https://github.com/Jeppesen-io/homebrew-git/archive/master.zip'
   homepage 'https://github.com/Jeppesen-io/homebrew-git'
-  version '1.2.1'
+  version '1.3.4'
 
   depends_on 'git'
   depends_on 'curl'
@@ -12,9 +12,12 @@ class MyGit < Formula
   def install
 
     # Get home dir (stripped by homebrew)
-    home_dir = `sudo -Hu $USER bash -c 'echo -n $HOME'`
+    home_dir = ENV['HOME']
+    puts home_dir
 
     # Create xdg dirs for git
+    system 'whoami'
+		puts `whoami`
     system 'mkdir', '-vp', "#{home_dir}/.config/git/"
     system 'mkdir', '-vp', "#{home_dir}/.config/bash/"
 
