@@ -1,6 +1,6 @@
 cask 'my-git' do
 
-  version '1.1'
+  version '1.2'
   url 'https://github.com/Jeppesen-io/homebrew-git/archive/master.zip'
   homepage 'https://github.com/Jeppesen-io/homebrew-git'
   sha256 :no_check
@@ -24,6 +24,9 @@ cask 'my-git' do
     # Implicitly push for the current branch regardless of if that branch exists on origin
     # http://stackoverflow.com/questions/17096311/why-do-i-need-to-explicitly-push-a-new-branch
     system 'git', 'config', '--global', '--replace-all', 'push.default',  'current'
+
+    git config --global user.email "Nelson"
+    git config --global user.name "Nelson Jeppesen"
 
     # Create global git alias
     def git_alias(name,action)
