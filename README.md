@@ -1,10 +1,9 @@
 # homebrew-git
 ### Wraps `git` brew
-Git, for me!
+Git, for me! Mostly just aliases
 
-### bash/zsh completion support for core Git.
 
-### Aliases
+### Day to day
 |Alias|Action|
 |---|---|
 |a           | add
@@ -14,19 +13,30 @@ Git, for me!
 |ps          | push
 |psf         | push --force-with-lease
 |s           | status
-|            |
+
+### Stashes
+|Alias|Action|
+|---|---|
 |st          | stash
 |stp         | stash pop
 |stc         | stash clear
-|            |
+
+### Diff and Logs
+|Alias|Action|
+|---|---|
 |dfm         | diff origin/master
-|            |
 |l           | log -p --color
 |l1          | log -1 HEAD
-|            |
+
+### Rebase
+|Alias|Action|
+|---|---|
 |rb          | rebase -i origin/master
 |rba         | rebase --abort
 |rbc         | rebase --continue
-|            |
+
+### Git ignore
+|Alias|Action|
+|---|---|
 |ignore      | update-index --assume-unchanged
 |unignore    | update-index --no-assume-unchanged
